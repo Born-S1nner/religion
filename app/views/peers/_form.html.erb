@@ -1,0 +1,32 @@
+<%= form_with(model: peer) do |form| %>
+  <% if peer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(peer.errors.count, "error") %> prohibited this peer from being saved:</h2>
+
+      <ul>
+        <% peer.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :username %>
+    <%= form.text_field :username %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :religion %>
+    <%= form.text_field :religion %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

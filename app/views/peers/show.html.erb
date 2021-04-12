@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @peer.username %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @peer.email %>
+</p>
+
+<p>
+  <strong>Religion:</strong>
+  <%= @peer.religion %>
+</p>
+
+<%= link_to 'Edit', edit_peer_path(@peer) %> |
+<%= link_to 'Back', peers_path %>
