@@ -1,6 +1,7 @@
 class PeersController < ApplicationController
   before_action :set_peer, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
   # GET /peers or /peers.json
   def index
     @peers = Peer.all
@@ -12,7 +13,7 @@ class PeersController < ApplicationController
 
   # GET /peers/new
   def new
-    @peer = Peer.new
+    @peer = current_user.peers.build
   end
 
   # GET /peers/1/edit
@@ -21,7 +22,7 @@ class PeersController < ApplicationController
 
   # POST /peers or /peers.json
   def create
-    @peer = Peer.new(peer_params)
+    @peer = current_user.peers.build(peer_params)
 
     respond_to do |format|
       if @peer.save
@@ -56,6 +57,9 @@ class PeersController < ApplicationController
     end
   end
 
+  def correct_user
+    @peer = current_user.peers.find_by(id: params[:id])
+    redirect_to peers_path, notice: "Not Authorized to mess with other's peers" if @peer.nil?
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_peer
@@ -64,6 +68,6 @@ class PeersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def peer_params
-      params.require(:peer).permit(:username, :email, :religion)
+      params.require(:peer).permit(:username, :email, :religion, :user_id)
     end
 end
