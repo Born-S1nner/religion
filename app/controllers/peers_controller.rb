@@ -60,7 +60,8 @@ class PeersController < ApplicationController
   def correct_user
     @peer = current_user.peers.find_by(id: params[:id])
     redirect_to peers_path, notice: "Not Authorized to mess with other's peers" if @peer.nil?
-  private
+  end
+    private
     # Use callbacks to share common setup or constraints between actions.
     def set_peer
       @peer = Peer.find(params[:id])
