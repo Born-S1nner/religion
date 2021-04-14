@@ -1,4 +1,12 @@
-ActiveRecord::Schema.define(version: 2021_04_13_191430) do
+ActiveRecord::Schema.define(version: 2021_04_14_183414) do
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "username"
+    t.string "blog"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "peers", force: :cascade do |t|
     t.string "username"
