@@ -1,5 +1,7 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   # GET /messages or /messages.json
   def index
@@ -12,7 +14,7 @@ class MessagesController < ApplicationController
 
   # GET /messages/new
   def new
-    @message = Message.new
+    @message = current_user.messages.build
   end
 
   # GET /messages/1/edit
@@ -21,7 +23,7 @@ class MessagesController < ApplicationController
 
   # POST /messages or /messages.json
   def create
-    @message = Message.new(message_params)
+    @message = current_user.messages.build(message_params)
 
     respond_to do |format|
       if @message.save
@@ -55,6 +57,10 @@ class MessagesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def correct_user
+    @message = current_user.messages.find_by(id: params[:id])
+    redirect_to messages_path, notice: "Not Authorized to mess with other's message" if @message.nil?
 
   private
     # Use callbacks to share common setup or constraints between actions.
