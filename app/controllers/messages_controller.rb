@@ -61,6 +61,7 @@ class MessagesController < ApplicationController
   def correct_user
     @message = current_user.messages.find_by(id: params[:id])
     redirect_to messages_path, notice: "Not Authorized to mess with other's message" if @message.nil?
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
