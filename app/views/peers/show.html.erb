@@ -17,3 +17,17 @@
 
 <%= link_to 'Edit', edit_peer_path(@peer) %> |
 <%= link_to 'Back', peers_path %>
+
+<div class="jumbotron">
+  <h1 class="display-4"><%= @peer.username %></h1>
+  <p class="lead"><%= @peer.email %></p>
+  <p class="lead"><%= @peer.religion %></p>
+  <hr class="my-4">
+  <h3>Messages</h3>
+  <ul>
+    <!--<%= messages %> -->
+  </ul>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  </p>
+</div>
