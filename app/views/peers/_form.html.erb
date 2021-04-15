@@ -12,21 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :username %>
-    <%= form.text_field :username %>
-  </div>
+    <%= form.text_field :username, placeholder: "Username", class:"form-control" %>
+  </div><br/>
+  
+  <div class="field">
+    <%= form.text_field :email, placeholder: "Email", class:"form-control" %>
+  </div><br/>
 
   <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
+    <%= form.text_field :religion, placeholder: "Religion", class:"form-control" %>
+  </div><br/>
 
-  <div class="field">
-    <%= form.label :religion %>
-    <%= form.text_field :religion %>
-  </div>
+  <div class="field form-group">
+    <%= form.number_field :user_id, id: :peer_user_id, class:"form-control", value:current_user.id, type: :hidden %>
+  </div><br/>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-primary" %>
   </div>
 <% end %>
