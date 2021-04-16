@@ -1,33 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Username:</strong>
-  <%= @peer.username %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @peer.email %>
-</p>
-
-<p>
-  <strong>Religion:</strong>
-  <%= @peer.religion %>
-</p>
-
-<%= link_to 'Edit', edit_peer_path(@peer) %> |
-<%= link_to 'Back', peers_path %>
-
-<div class="jumbotron">
+<div class="jumbotron bg-light">
   <h1 class="display-4"><%= @peer.username %></h1>
   <p class="lead"><%= @peer.email %></p>
   <p class="lead"><%= @peer.religion %></p>
   <hr class="my-4">
   <h3>Messages</h3>
   <ul>
-    <!--<%= messages %> -->
+    
   </ul>
   <p class="lead">
-    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    <%= link_to 'Add to your Watchlist', new_peer_path, class:"btn btn-primary text-light" %>
   </p>
+
+<%= link_to 'Edit', edit_peer_path(@peer) %> |
+<%= link_to 'Destroy', @peer, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back', peers_path %>
+
 </div>
