@@ -13,12 +13,14 @@
 
   <tbody>
     <% @peers.each do |peer| %>
+      <% if current_user.id == peer.user_id %>
       <tr>
         <td><%= peer.username %></td>
         <td><%= peer.email %></td>
         <td><%= peer.religion %></td>
         <td><%= link_to 'Show', peer, class:"text-light" %></td>
       </tr>
+      <%end%>
     <% end %>
   </tbody>
 </table>
