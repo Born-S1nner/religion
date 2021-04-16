@@ -1,0 +1,16 @@
+
+<table class="table table-dark table-striped table-bordered">
+
+  <ul>
+    <% @messages.each do |message| %>
+      <li class="card">
+        <h5 class="card-header"><%= message.username %></h5>
+        <div class="card-body">
+          <h5 class="card-title"><%= message.user_id %></h5>
+          <p class="card-text"><%= message.blog %></p>
+          <%= link_to 'Show', message %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</table>

@@ -8,6 +8,10 @@ class MessagesController < ApplicationController
     @messages = Message.all
   end
 
+  def public
+    @messages = Message.all
+  end
+
   # GET /messages/1 or /messages/1.json
   def show
   end
