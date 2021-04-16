@@ -12,8 +12,6 @@
           <h5 class="card-title"><%= message.user_id %></h5>
           <p class="card-text"><%= message.blog %></p>
           <%= link_to 'Show', message %>
-          <%= link_to 'Edit', edit_message_path(message) %>
-          <%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %>
         </div>
       </li>
     <% end %>
@@ -22,4 +20,4 @@
 
 <br>
 
-<%= link_to 'New Message', new_message_path %>
+<%= link_to 'New Message', new_message_path, class:"btn btn-primary text-light" %>

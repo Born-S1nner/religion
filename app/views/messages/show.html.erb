@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @message.user_id %>
-</p>
-
-<p>
-  <strong>Username:</strong>
-  <%= @message.username %>
-</p>
-
-<p>
-  <strong>Blog:</strong>
-  <%= @message.blog %>
-</p>
+<div class="jumbotron bg-light">
+  <h1 class="display-4"><%= @message.username %></h1>
+  <p class="lead"><%= @message.blog %></p>
+  <hr class="my-4">
+  <h3>Messages</h3>
+  <ul>
+    
+  </ul>
+  <p class="lead">
+    <%= link_to 'Add to your Friendslist', new_peer_path, class:"btn btn-primary text-light" %>
+  </p>
 
 <%= link_to 'Edit', edit_message_path(@message) %> |
+<%= link_to 'Destroy', @message, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', messages_path %>
+
+</div>
