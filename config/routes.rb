@@ -4,6 +4,5 @@ Rails.application.routes.draw do
   resources :messages
 
   get 'peers/index'
-  get 'messages/public'
   root 'home#home'
 end

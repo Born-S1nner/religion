@@ -74,8 +74,4 @@ class MessagesController < ApplicationController
       params.require(:message).permit(:user_id, :username, :blog, :religion, :email)
     end
 
-  def public
-    @blog = Message.all
-  end
-  
 end
