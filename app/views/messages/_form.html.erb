@@ -23,12 +23,16 @@
     <%= form.text_field :user_id, id: :peer_user_id, class:"form-control", value:current_user.id, type: :hidden %>
   </div>
 
-  <div class="card">
-    <%= form.text_field :blog, class:"form-control", placeholder:"Type your post here" %>
-  </div>
-  <br/>
-  <div class="actions">
-    <%= form.submit class:"btn btn-primary" %>
+  <div class="jumbotron bg-light">
+    <h3 class="display-4"><%= current_user.username %></h3>
+    <p class="lead"><%= current_user.religion %>
+    <hr>
+    <%= form.text_field :blog, class:"form-control", placeholder:"Type your post here", aria_label:"Large" %>
+    <br/>
+    <div class="actions">
+      <%= form.submit class:"btn btn-primary" %>
+    </div>
+    <br/>
   </div>
   <hr/>
 <% end %>

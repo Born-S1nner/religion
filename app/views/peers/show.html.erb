@@ -7,7 +7,10 @@
   <hr class="my-4">
   <h3>Messages</h3>
   <ul>
-    
+    <%if @peer_user_id == @message_user_id %>
+    <%else%>
+      Haven't post anything
+    <%end%>
   </ul>
   <p class="lead">
     <%= link_to 'Add to your Friendslist', new_peer_path, class:"btn btn-primary text-light" %>
@@ -16,5 +19,5 @@
 <%= link_to 'Edit', edit_peer_path(@peer) %> |
 <%= link_to 'Destroy', @peer, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', peers_path %>
-
+<hr/>
 </div>
