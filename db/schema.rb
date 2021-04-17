@@ -1,4 +1,4 @@
-ActiveRecord::Schema.define(version: 2021_04_17_175219) do
+ActiveRecord::Schema.define(version: 2021_04_17_192228) do
 
   create_table "messages", force: :cascade do |t|
     t.integer "user_id"
@@ -7,6 +7,7 @@ ActiveRecord::Schema.define(version: 2021_04_17_175219) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "email"
+    t.string "religion"
   end
 
   create_table "peers", force: :cascade do |t|

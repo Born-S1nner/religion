@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :peers
   resources :messages
 
-  get 'messages/index'
   get 'peers/index'
+  get 'messages/public'
   root 'home#home'
 end

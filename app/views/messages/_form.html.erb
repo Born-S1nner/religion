@@ -20,6 +20,10 @@
   </div>
   
   <div>
+    <%= form.text_field :email, class:"form-control", value: current_user.email, type: :hidden %>
+  </div>
+  
+  <div>
     <%= form.text_field :user_id, id: :peer_user_id, class:"form-control", value:current_user.id, type: :hidden %>
   </div>
 

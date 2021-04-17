@@ -6,7 +6,7 @@
 
   <ul>
     <% @messages.each do |message| %>
-      <% if current_user.id == message.user_id %>
+      
       <li class="card">
         <h5 class="card-header"><%= message.username %></h5>
         <div class="card-body">
@@ -15,7 +15,7 @@
           <%= link_to 'Show', message %>
         </div>
       </li>
-      <% end %>
+      
     <% end %>
   </ul>
 </table>

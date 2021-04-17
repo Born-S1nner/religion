@@ -8,10 +8,6 @@ class MessagesController < ApplicationController
     @messages = Message.all
   end
 
-  def public
-    @messages = Message.all
-  end
-
   # GET /messages/1 or /messages/1.json
   def show
   end
@@ -75,6 +71,11 @@ class MessagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def message_params
-      params.require(:message).permit(:user_id, :username, :blog, :religion)
+      params.require(:message).permit(:user_id, :username, :blog, :religion, :email)
     end
+
+  def public
+    @blog = Message.all
+  end
+  
 end
