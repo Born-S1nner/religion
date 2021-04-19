@@ -1,5 +1,7 @@
-<h2>Sign up</h2>
-<hr/>
+<h2 class="text-center text-light">Sign up</h2>
+<br/>
+<div class="bg-dark">
+<br/>
 <%= form_for(resource, as: resource_name, :url => user_registration_path) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -26,7 +28,8 @@
   <div class="actions">
     <%= f.submit "Sign In", class:"btn btn-primary" %>
   </div>
-  <hr/>
+  <br/>
 <% end %>
-
+</div>
+<br/>
 <%= render "devise/shared/links" %>
