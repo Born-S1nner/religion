@@ -1,17 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <div class="jumbotron bg-light">
-  <h1 class="display-4"><%= @peer.username %></h1>
-  <p class="lead"><%= @peer.email %></p>
-  <p class="lead"><%= @peer.religion %></p>
+  <h1 class="display-2"><%= @peer.username %></h1>
+  <h3 class="lead"><%= @peer.email %></h3>
+  <h3 class="lead"><%= @peer.religion %></h3>
   <hr class="my-4">
-  <h3>Messages</h3>
-  <ul>
-    <%if @peer_user_id == @message_user_id %>
-    <%else%>
-      Haven't post anything
-    <%end%>
-  </ul>
   <p class="lead">
     <%= link_to 'Add to your Friendslist', new_peer_path, class:"btn btn-primary text-light" %>
   </p>
